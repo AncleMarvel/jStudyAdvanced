@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">E-shop</div>
+        <div class="cart">
+            <button class="btn-cart" type="button">Корзина</button>
+            <div class="cart-block invisible">
+
+                <div class="cart-item" data-id="${this.id_product}">
+                    <div class="product-bio">
+                        <img src="https://placehold.it/50x100" alt="Some image">
+                        <div class="product-desc">
+                            <p class="product-title">Ноутбук</p>
+                            <p class="product-quantity">Quantity: 1</p>
+                            <p class="product-single-price">$45600 each</p>
+                        </div>
+                    </div>
+
+                    <div class="right-block">
+                        <p class="product-price">$45600</p>
+                        <button class="del-btn" data-id="123">&times;</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="products"></div>
+    </main>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <script src="js/test.js"></script>
+</body>
+
+</html>
