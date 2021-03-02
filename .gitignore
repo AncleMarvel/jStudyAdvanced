@@ -1,3 +1,4 @@
-less3/debug.log
+*.log
 less3/.vs/slnx.sqlite
 less3/.vs/slnx.sqlite-journal
+*.rar
