@@ -1,4 +1,3 @@
-
 class FormValidator {
     constructor(form) {
         this.form = form;
