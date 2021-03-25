@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="shop">
+        <header>
+            <div class="logo">E-shop</div>
+            <form action="#" class="search-form" id="search">
+                <input type="text" class="search-field" v-model.lazy="searchText">
+                <button class="btn-search" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+
+            <div class="cart" id="cart">
+                <div class="quantity">{{quantityOfProductsInCart}}</div>
+                <button @click="visibleCart = !visibleCart" class="btn-cart" type="button">Корзина</button>
+                <div class="cart-block" v-if="visibleCart">
+                    <div class="cart-item" v-for="product of state.shop.cart.products" >
+                        <div v-if="product.quantity != 0">
+                            <div class="product-bio">
+                                <img :src="productInCartImg" alt="productImg">
+                                <div class="product-desc">
+                                    <p class="product-title">{{product.product.product_name}}</p>
+                                    <p class="product-quantity">Quantity: {{product.quantity}} </p>
+                                    <p class="product-single-price">{{product.product.price}} each</p>
+                                </div>
+                            </div>
+                
+                            <div class="right-block">
+                                <p class="product-price">{{product.quantity * product.product.price}}</p>
+                                <button @click="removeOneFromCart(product)" class="del-btn">&times;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="products" id="products" v-if='searchText == ""'>
+                <div v-for="product of productsData" :key="product.id_product">
+                    <img :src="productImg" alt="img">
+                    <h3>{{product.product_name}}</h3>
+                    <p>{{product.price}}</p>
+                    <button class="buy-btn" :data-id="product.id_product" @click="buy(product)">Купить</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <!-- <script src="js/main.js"></script> -->
+    <script src="js/vue.js"></script>
+</body>
+
+</html>
