@@ -14,7 +14,7 @@
             <div class="logo">E-shop</div>
             <form action="#" class="search-form" id="search">
                 <input type="text" class="search-field" v-model.lazy="searchText">
-                <button class="btn-search" type="submit">
+                <button @click="search()" class="btn-search" type="submit">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
@@ -44,10 +44,10 @@
             </div>
         </header>
         <main>
-            <div class="products" id="products" v-if='searchText == ""'>
-                <div v-for="product of productsData" :key="product.id_product">
+            <div class="products" id="products" > 
+                <div v-for="product of sourceData" :key="product.id_product">
                     <img :src="productImg" alt="img">
-                    <h3>{{product.product_name}}</h3>
+                    <h3 class="product-name">{{product.product_name}}</h3>
                     <p>{{product.price}}</p>
                     <button class="buy-btn" :data-id="product.id_product" @click="buy(product)">Купить</button>
                 </div>
