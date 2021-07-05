@@ -14,7 +14,7 @@
             <div class="logo">E-shop</div>
             <form action="#" class="search-form" id="search">
                 <input type="text" class="search-field" v-model.lazy="searchText">
-                <button @click="search()" class="btn-search" type="submit">
+                <button @click.prevent="search()" class="btn-search" type="submit">
                     <i class="fas fa-search"></i>
                 </button>
             </form>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>tests</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="shop">
+        <header>
+            <div class="logo">E-shop</div>
+            <!-- <search ref="search"></search> -->
+            <cart :selected-products='productsInCart'></cart>
+        </header>
+        
+        <main>
+            <div class="products" id="products" > 
+                <product v-for="product of sourceData" :key="product.id_product" :source-data="product" @buy="buyier($event)"></product>
+            </div>
+        </main>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+
+    <script src="js/components/product.js"></script>
+    <script src="js/components/cart.js"></script>
+    <script src="js/components/cart-item.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
