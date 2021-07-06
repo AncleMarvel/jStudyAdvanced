@@ -188,3 +188,12 @@ img {
     border: none;
     border-bottom: 2px solid #fafafa;
 }
+.error {
+    position: absolute;
+    text-align: center;
+    font-size: 2vw;
+    color: #b13232;
+    border-bottom: 1px solid rgb(145, 35, 35);
+    top: 200%;
+    left: 20%;
+}

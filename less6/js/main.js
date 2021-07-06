@@ -51,7 +51,6 @@ const shop = new Vue({
             } else {
                 targetProduct.quantity++;
             }
-            // console.log(this.productsInCart);
             this.productsInCart = [...this.productsInCart];
         },
 

@@ -1,7 +1,8 @@
 Vue.component('search', {
+    props: ['filteredLength'],
     data() {
         return {
-            searchText: ''
+            searchText: '',
         }
     },
     template:
@@ -10,7 +11,17 @@ Vue.component('search', {
             <button @click.prevent="search()" class="btn-search" type="submit">
                 <i class="fas fa-search"></i>
             </button>
+            <error :message="error"></error>
         </form>`,
+    computed: {
+        error: function() {
+            if (this.filteredLength <= 0) {
+                return 'not found';
+            } else {
+                return '';
+            }
+        }
+    },
     methods: {
         search() {
             this.$emit('search', this.searchText);
