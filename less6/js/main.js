@@ -6,7 +6,8 @@ const shop = new Vue({
         productsGetJsonMethod: "catalogData.json",
         productImg: "https://via.placeholder.com/200x150",
         sourceData: [],
-        productsInCart: []
+        productsInCart: [],
+        filteredProducts: [],
     },
 
     methods: {
@@ -52,13 +53,27 @@ const shop = new Vue({
             }
             // console.log(this.productsInCart);
             this.productsInCart = [...this.productsInCart];
+        },
+
+        searcher(text) {
+            text = text.toLowerCase();
+            if (text == '') {
+                this.filteredProducts = this.sourceData;
+                return true;
+            } else {
+                this.filteredProducts = this.sourceData.filter(p => {
+                    let pName = p.product_name.toLowerCase();
+                    let result = pName.indexOf(text, 0) > -1; 
+                    return result;
+                });
+            }
         }
     },
-
     mounted() {
         this.getJson(this.productsGetJsonMethod)
             .then(pData => {
                 this.sourceData = pData;
+                this.filteredProducts = pData;
                 this.sourceData.forEach(el => {
                     el.quantity = 0;
                 });

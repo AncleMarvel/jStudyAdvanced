@@ -12,13 +12,13 @@
     <div id="shop">
         <header>
             <div class="logo">E-shop</div>
-            <!-- <search ref="search"></search> -->
+            <search @search="searcher($event)"></search>
             <cart :selected-products='productsInCart'></cart>
         </header>
         
         <main>
             <div class="products" id="products" > 
-                <product v-for="product of sourceData" :key="product.id_product" :source-data="product" @buy="buyier($event)"></product>
+                <product v-for="product of filteredProducts" :key="product.id_product" :source-data="product" @buy="buyier($event)"></product>
             </div>
         </main>
     </div>
@@ -29,6 +29,7 @@
     <script src="js/components/product.js"></script>
     <script src="js/components/cart.js"></script>
     <script src="js/components/cart-item.js"></script>
+    <script src="js/components/search.js"></script>
     <script src="js/main.js"></script>
 </body>
 
