@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Интернет-магазин</title>
+    <title>tests</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<div id="app">
-    <header>
-        <div class="logo">E-shop</div>
-        <div class="cart">
 
-            <filter-el></filter-el>
-            <cart ref="cart"></cart>
-        </div>
-    </header>
-    <main>
-        <error ref="error"></error>
-        <products ref="products"></products>
-    </main>
-</div>
+<body>
+    <div id="shop">
+        <header>
+            <div class="logo">E-shop</div>
+            <search :filtered-length="filteredProducts.length" @search="searcher($event)"></search>
+            <cart :selected-products='productsInCart'></cart>
+        </header>
+        
+        <main>
+            <div class="products" id="products" > 
+                <product v-for="product of filteredProducts" :key="product.id_product" :source-data="product" @buy="buyier($event)"></product>
+            </div>
+            <div class="cards">
+                <test-card v-for="card of svgList" :svg-link="card"></test-card>
+            </div>
+        </main>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="js/ProductComponent.js"></script>
-<script src="js/CartComponent.js"></script>
-<script src="js/FilterComp.js"></script>
-<script src="js/ErrorComp.js"></script>
+
+    <script src="js/components/product.js"></script>
+    <script src="js/components/cart.js"></script>
+    <script src="js/components/cart-item.js"></script>
+    <script src="js/components/search.js"></script>
+    <script src="js/components/error.js"></script>
+    <script src="js/components/test-card.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

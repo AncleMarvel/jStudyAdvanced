@@ -10,7 +10,7 @@ Vue.component('products', {
         this.$parent.getJson(`/api/products`)
             .then(data => {
                 for (let item of data){
-                    item.imgPath = `img1/${item.id_product}.jpg`;
+                    item.imgPath = `img/${item.id_product}.jpg`;
                     this.$data.products.push(item);
                     this.$data.filtered.push(item);
                 }
