@@ -3,3 +3,4 @@ less3/.vs/slnx.sqlite
 less3/.vs/slnx.sqlite-journal
 *.rar
 *node_modules
+*tests

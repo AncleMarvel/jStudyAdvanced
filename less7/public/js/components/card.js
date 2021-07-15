@@ -1,5 +1,5 @@
 Vue.component('test-card', {
-    props: ['svgLink'],
+    props: ['sourceData'],
     data() {
         return {
 

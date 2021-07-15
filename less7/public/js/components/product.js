@@ -3,7 +3,7 @@ Vue.component('product', {
     data() {
         return {
             id: this.sourceData.id_product,
-            img: "https://via.placeholder.com/200x150",
+            img: this.sourceData.img,
             title: this.sourceData.product_name,
             price: this.sourceData.price,
             quantity: 0
@@ -11,14 +11,16 @@ Vue.component('product', {
     },
     template:
         `<div>
-            <img :src="img" alt="img">
+            <div style="width: 200px; height: 150px; overflow: hidden">
+                <img :src="img" alt="img" style="width: 100%">
+            </div>
             <h3 class="product-name">{{ title }}</h3>
             <p>{{ price }}</p>
             <button class="buy-btn" @click="buy()">Купить</button>
         </div>`,
     methods: {
         buy() {
-            this.$emit('buy', {id: this.id, img: this.img, title: this.title, price: this.price, quantity: this.quantity});
+            this.$emit('buy', { id: this.id, img: this.img, title: this.title, price: this.price, quantity: this.quantity });
         }
     }
 });

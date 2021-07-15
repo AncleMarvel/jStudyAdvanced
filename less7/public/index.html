@@ -20,9 +20,7 @@
             <div class="products" id="products" > 
                 <product v-for="product of filteredProducts" :key="product.id_product" :source-data="product" @buy="buyier($event)"></product>
             </div>
-            <div class="cards">
-                <test-card v-for="card of svgList" :svg-link="card"></test-card>
-            </div>
+            <!-- <cards-container></cards-container> -->
         </main>
     </div>
     
@@ -34,7 +32,8 @@
     <script src="js/components/cart-item.js"></script>
     <script src="js/components/search.js"></script>
     <script src="js/components/error.js"></script>
-    <script src="js/components/test-card.js"></script>
+    <script src="js/components/cards-container.js"></script>
+    <script src="js/components/card.js"></script>
     <script src="js/main.js"></script>
 </body>
 
